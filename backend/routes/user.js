@@ -1,11 +1,13 @@
 const express = require("express");
-const { create, verifyEmail,resendEmailVerificationToken, forgetPassword, sendResetPasswordTokenStatus, resetPassword } = require("../controllers/user");
+const { create, verifyEmail,resendEmailVerificationToken, forgetPassword, sendResetPasswordTokenStatus, resetPassword, signIn } = require("../controllers/user");
 const { isValidPassResetToken } = require("../middlewares/user");
-const { userValidator,validate, validatePassword } = require("../middlewares/validator");
+const { userValidator,validate, validatePassword, signInValidator } = require("../middlewares/validator");
 
 const router = express.Router();
 
 router.post("/create",userValidator,validate,create);
+
+router.post("/signin",signInValidator,validate,signIn);
 
 router.post("/verify-email",verifyEmail);
 
