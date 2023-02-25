@@ -13,6 +13,6 @@ app.use("/api/user",userRouter);
 
 app.use(errorHandler);
 
-app.listen(3000, ()=>{
-    console.log("The server is successfully connected to port 3000");
+app.listen(8000, ()=>{
+    console.log("The server is successfully connected to port 8000");
 });
